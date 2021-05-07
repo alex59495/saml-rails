@@ -24,6 +24,11 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 
+gem 'ruby-saml', '~> 1.11.0'
+
+# Test Google Sign In
+gem 'google_sign_in'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
