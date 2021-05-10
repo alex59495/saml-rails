@@ -24,7 +24,13 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise'
 
+# SSO with SAML simple tenant
 gem 'ruby-saml', '~> 1.11.0'
+
+# SOO with SAML multiple tenant
+gem 'omniauth-multi-provider', '= 0.2.1'
+gem 'omniauth-saml', '= 1.10.3'
+gem "omniauth-rails_csrf_protection"
 
 # Test Google Sign In
 gem 'google_sign_in'

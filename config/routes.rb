@@ -4,9 +4,20 @@ Rails.application.routes.draw do
   root to: "application#index"
   get 'logged_in', to: "application#logged_in", as: :logged_in
 
-  # SAML LOGIN WITH OSSOS
-  post 'saml_login', to: "application#saml_login"
-  post 'saml_callback', to: "application#saml_callback"
+  # SAML LOGIN SINGLE TENANT
+  # post 'saml_login', to: "application#saml_login"
+  # post 'saml_callback', to: "application#saml_callback"
+
+  # SAML SSO MULTIPLE TENANT
+  devise_scope :user do
+    post '/auth/saml/:identity_provider_id/callback',
+      to: 'omniauth_callbacks#saml',
+      as: 'user_omniauth_callback'
+    post '/auth/saml/:identity_provider_id',
+      to: 'omniauth_callbacks#passthru',
+      as: 'user_omniauth_authorize'
+  end
+
 
   # GOOGLE AUTH
   get 'login', to: 'logins#new'

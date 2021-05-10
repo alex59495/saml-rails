@@ -9,7 +9,10 @@
       <% end %>
     <% end %>
     <!-- Add a button to allow signing in -->
-    <%= button_to 'Sign in with SAML SSO', action: :saml_login %> 
+    <%# Single tenancy %>
+    <%# <%= button_to 'Sign in with SAML SSO', action: :saml_login %>
+    <%# Multiple tenancy %>
+    <%= button_to 'Sign in with SAML SSO', user_omniauth_authorize_path(identity_provider_id: 'example') %> 
   </div>
   <div class="google-signin">
     <%= google_sign_in_button proceed_to: create_login_url do %>
